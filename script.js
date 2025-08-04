@@ -22,12 +22,11 @@ if (form) {
     localStorage.setItem("repairRequest", JSON.stringify(request));
     form.reset();
 
-// Show confirmation modal instead of alert
-const modal = document.getElementById("confirmationModal");
-if (modal) {
-  modal.style.display = "flex";
-}
-
+    // Show confirmation modal instead of alert
+    const modal = document.getElementById("confirmationModal");
+    if (modal) {
+      modal.style.display = "flex";
+    }
   });
 }
 
@@ -51,9 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// STATUS FILTER
 const statusFilter = document.getElementById("statusFilter");
 
-statusFilter.addEventListener("change", function () {
+statusFilter?.addEventListener("change", function () {
   const selected = this.value;
   const rows = document.querySelectorAll("table tbody tr");
 
@@ -67,6 +68,7 @@ statusFilter.addEventListener("change", function () {
   });
 });
 
+// COUNTING STATS
 window.addEventListener("DOMContentLoaded", () => {
   const rows = document.querySelectorAll("table tbody tr");
   let total = rows.length;
@@ -83,6 +85,7 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("inProgressCount").innerText = `In Progress: ${inProgress}`;
   document.getElementById("completedCount").innerText = `Completed: ${completed}`;
 });
+
 // MODAL CLOSE FUNCTIONALITY
 const closeModalBtn = document.getElementById("closeModalBtn");
 if (closeModalBtn) {
@@ -93,3 +96,27 @@ if (closeModalBtn) {
     }
   });
 }
+
+// ADVANCED FAQ TOGGLE
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      // Close all other answers
+      faqItems.forEach((el) => {
+        if (el !== item) el.classList.remove('open');
+      });
+
+      // Toggle current
+      item.classList.toggle('open');
+    });
+  });
+});
+
+
+
+
+
+
