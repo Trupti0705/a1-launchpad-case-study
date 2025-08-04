@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Repair Request Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 🔗 Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">🔧 Repair Portal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Form</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 📝 Form Section -->
+  <div class="container mt-5 mb-4">
+    <h2 class="mb-4 text-center">📨 Submit Your Repair Request</h2>
+
+    <form id="repairForm" class="bg-white p-4 rounded shadow-sm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Customer Name</label>
+        <input type="text" class="form-control" name="name" id="name" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="serial" class="form-label">Product Serial Number</label>
+        <input type="text" class="form-control" name="serial" id="serial" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="product" class="form-label">Product Name</label>
+        <input type="text" class="form-control" name="product" id="product" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="purchase" class="form-label">Date of Purchase</label>
+        <input type="date" class="form-control" name="purchase" id="purchase" />
+      </div>
+
+      <div class="mb-3">
+        <label for="issue" class="form-label">Issue Description</label>
+        <textarea class="form-control" name="issue" id="issue" rows="3" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="photo" class="form-label">Photo Link (Google Drive)</label>
+        <input type="url" class="form-control" name="photo" id="photo" />
+      </div>
+
+      <button type="submit" class="request-btn w-100 mt-3">📤 Submit Request</button>
+
+    </form>
+    <h5 style="margin-top: 1.5rem;">Latest Request:</h5>
+  <p id="recent-request" style="font-style: italic; color: #333;"></p>
+</div>
+
+    <div id="msg" class="text-success mt-3 text-center" style="display: none;">
+      ✅ Request submitted successfully!
+    </div>
+  </div>
+
+  <!-- Modal -->
+<div id="confirmationModal" class="modal-overlay">
+  <div class="modal-box">
+    <p>Repair request submitted successfully! ✅</p>
+    <button id="closeModalBtn" class="request-btn">Close</button>
+  </div>
+</div>
+
+
+  <!-- 📄 Footer -->
+  <footer class="text-center py-3">
+    <small>© 2025 Repair Services Portal. All rights reserved.</small>
+  </footer>
+
+  <!-- JS Logic -->
+  <script>
+    const form = document.getElementById('repairForm');
+    const msg = document.getElementById('msg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch("https://script.google.com/macros/s/AKfycbzRytO6b57_NOTueLDmUtd3VH_6tpHW7AShQUCjoiPD4SEwjQ54fxUl6Y6bk07_gcY1/exec", {
+          method: "POST",
+          body: formData
+        });
+
+        if (res.ok) {
+          msg.style.display = "block";
+          form.reset();
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        alert("Something went wrong. Please try again.");
+        console.error(err);
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js" defer></script>
+
+
+
+</body>
+</html>
+
+          

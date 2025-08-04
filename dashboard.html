@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Repair Requests Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+     body {
+      background-color: #f8f9fa;
+    }
+    footer {
+      background-color: #ffffff;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔗 Navigation Bar -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">🔧 Repair Portal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Form</a></li>
+          <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- 📊 Dashboard Content -->
+   <div class="container mt-5 mb-4">
+    <h2 class="mb-4 text-center">🛠️ Electronics Repair Request Dashboard</h2>
+
+     <div class="filter-bar" style="margin-bottom: 20px;">
+  <label for="statusFilter"><strong>Filter by Status:</strong></label>
+  <select id="statusFilter">
+    <option value="All">All</option>
+    <option value="Pending">Pending</option>
+    <option value="In Progress">In Progress</option>
+    <option value="Completed">Completed</option>
+  </select>
+</div>
+<div class="summary-cards">
+  <div class="card summary-box" id="totalCount">Total Requests: 0</div>
+  <div class="card summary-box" id="inProgressCount">In Progress: 0</div>
+  <div class="card summary-box" id="completedCount">Completed: 0</div>
+</div>
+
+<!-- 🔍 Search -->
+    <input type="text" class="form-control mb-3" id="searchInput" placeholder="Search by customer, product or status...">
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped" id="dashboardTable">
+        <thead class="table-primary">
+          <tr>
+            <th>#</th>
+            <th>Customer Name</th>
+            <th>Serial No.</th>
+            <th>Product</th>
+            <th>Purchase Date</th>
+            <th>Issue Description</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- All 20 rows -->
+          <tr><td>1</td><td>Rahul Sharma</td><td>SN123456</td><td>LG Washing Machine</td><td>2023-08-15</td><td>Water leakage from bottom</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+<tr><td>2</td><td>Pooja Verma</td><td>SN223344</td><td>Sony LED TV</td><td>2022-12-01</td><td>Not turning on, red light blinking</td><td><span class="status-badge status-progress">In Progress</span></td></tr>
+<tr><td>3</td><td>Arjun Mehta</td><td>SN334455</td><td>Samsung Refrigerator</td><td>2021-06-09</td><td>Cooling issue, compressor noise</td><td><span class="status-badge status-completed">Completed</span></td></tr>
+<tr><td>4</td><td>Sneha Desai</td><td>SN445566</td><td>HP Laptop</td><td>2023-01-20</td><td>Battery not charging</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+<tr><td>5</td><td>Aman Gupta</td><td>SN556677</td><td>Mi Air Purifier</td><td>2020-10-30</td><td>Not switching on</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+<tr><td>6</td><td>Divya Iyer</td><td>SN667788</td><td>Bajaj Microwave</td><td>2019-07-14</td><td>Buttons not working</td><td><span class="status-badge status-progress">In Progress</span></td></tr>
+<tr><td>7</td><td>Mohit Jain</td><td>SN778899</td><td>OnePlus TV</td><td>2022-03-11</td><td>Distorted display</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+<tr><td>8</td><td>Ritika Nair</td><td>SN889900</td><td>Dell Monitor</td><td>2023-06-02</td><td>No signal detected</td><td><span class="status-badge status-completed">Completed</span></td></tr>
+<tr><td>9</td><td>Kunal Patil</td><td>SN990011</td><td>Canon Printer</td><td>2021-11-29</td><td>Paper jam error</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+<tr><td>10</td><td>Meera Joshi</td><td>SN101112</td><td>Samsung Smartphone</td><td>2022-09-05</td><td>Touch screen unresponsive</td><td><span class="status-badge status-progress">In Progress</span></td></tr>
+<tr><td>11</td><td>Rajeev Rathi</td><td>SN111213</td><td>Lenovo Tablet</td><td>2020-04-17</td><td>System stuck on boot logo</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+<tr><td>12</td><td>Priya Chauhan</td><td>SN121314</td><td>LG Soundbar</td><td>2023-02-23</td><td>No audio output</td><td><span class="status-badge status-completed">Completed</span></td></tr>
+<tr><td>13</td><td>Yash Thakur</td><td>SN131415</td><td>Bose Headphones</td><td>2021-08-08</td><td>Left speaker dead</td><td><span class="status-badge status-progress">In Progress</span></td></tr>
+<tr><td>14</td><td>Neha Malhotra</td><td>SN141516</td><td>Whirlpool AC</td><td>2022-05-19</td><td>Remote not responding</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+<tr><td>15</td><td>Deepak Sinha</td><td>SN151617</td><td>Samsung Tablet</td><td>2023-03-25</td><td>Charging port loose</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+<tr><td>16</td><td>Ishita Roy</td><td>SN161718</td><td>Amazon Echo Dot</td><td>2022-11-14</td><td>Not connecting to Wi-Fi</td><td><span class="status-badge status-completed">Completed</span></td></tr>
+<tr><td>17</td><td>Rohit Deshmukh</td><td>SN171819</td><td>Redmi Phone</td><td>2023-07-01</td><td>Microphone not working</td><td><span class="status-badge status-progress">In Progress</span></td></tr>
+<tr><td>18</td><td>Anjali Kapoor</td><td>SN181920</td><td>HP Printer</td><td>2020-06-21</td><td>Ink smearing on paper</td><td><span class="status-badge status-completed">Completed</span></td></tr>
+<tr><td>19</td><td>Manish Jain</td><td>SN192021</td><td>Mi Smart Watch</td><td>2022-01-13</td><td>Screen frozen</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+<tr><td>20</td><td>Swati Kulkarni</td><td>SN202122</td><td>Philips Iron</td><td>2021-09-28</td><td>Not heating up</td><td><span class="status-badge status-completed">Completed</span></td></tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 📄 Footer -->
+  <footer class="text-center py-3">
+    <small>© 2025 Repair Services Portal. All rights reserved.</small>
+  </footer>
+
+  <!-- 🔍 Search Logic -->
+  <script>
+    document.getElementById("searchInput").addEventListener("keyup", function () {
+      const filter = this.value.toLowerCase();
+      const rows = document.querySelectorAll("#dashboardTable tbody tr");
+
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(filter) ? "" : "none";
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js" defer></script>
+
+
+</body>
+</html>

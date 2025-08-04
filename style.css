@@ -1,0 +1,190 @@
+:root {
+--primary-color: #009fe3;
+--primary-hover-color: #007cb3;
+--secondary-color: #6c757d;
+--light-color: #f8f9fa;
+--dark-color: #343a40;
+--success-color: #28a745;
+--warning-color: #ffc107;
+--info-color: #17a2b8;
+--danger-color: #dc3545;
+
+--warning-text-color: #856404;
+--info-text-color: #004085;
+--success-text-color: #155724;
+}
+
+/* ===============================
+Base Styles
+================================= */
+body {
+background-color: var(--light-color);
+}
+
+footer {
+background-color: #ffffff;
+color: var(--secondary-color);
+}
+
+/* ===============================
+Buttons
+================================= */
+.request-btn {
+background-color: var(--primary-color);
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 6px;
+font-size: 1rem;
+transition: background-color 0.3s ease;
+}
+
+.request-btn:hover {
+background-color: var(--primary-hover-color);
+cursor: pointer;
+}
+
+/* ===============================
+Responsive Utilities
+================================= */
+@media (max-width: 768px) {
+h2 {
+font-size: 1.4rem;
+}
+
+.container {
+padding-left: 1rem;
+padding-right: 1rem;
+}
+
+form {
+padding: 1rem !important;
+}
+
+.request-btn {
+font-size: 1rem;
+}
+
+footer small {
+font-size: 0.85rem;
+}
+}
+
+/* ===============================
+FAQ Section
+================================= */
+.faq-question {
+cursor: pointer;
+position: relative;
+padding-right: 30px;
+}
+
+.faq-question::after {
+content: '➕';
+position: absolute;
+right: 0;
+top: 0;
+font-size: 1.2rem;
+color: var(--primary-color);
+transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-question::after {
+content: '➖';
+}
+
+.faq-answer {
+display: none;
+font-size: 0.95rem;
+line-height: 1.5;
+color: var(--dark-color);
+}
+
+.faq-item.open .faq-answer {
+display: block;
+}
+
+/* ===============================
+Sidebar
+================================= */
+.sidebar-item.active {
+background-color: #e0f7ff;
+font-weight: bold;
+border-left: 4px solid var(--primary-color);
+}
+
+/* ===============================
+Status Badges
+================================= */
+.status-badge {
+padding: 5px 10px;
+border-radius: 12px;
+font-size: 0.9rem;
+font-weight: 500;
+}
+
+.status-pending {
+background-color: var(--warning-color);
+color: var(--warning-text-color);
+}
+
+.status-progress {
+background-color: var(--info-color);
+color: var(--info-text-color);
+}
+
+.status-completed {
+background-color: var(--success-color);
+color: var(--success-text-color);
+}
+    
+#recent-request {
+  background-color: #e9f7ff;
+  padding: 0.75rem;
+  border-left: 4px solid var(--primary-color);
+  border-radius: 4px;
+}
+.summary-cards {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.summary-box {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: var(--light-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--dark-color);
+  min-width: 200px;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+}
+
+.modal-box p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
